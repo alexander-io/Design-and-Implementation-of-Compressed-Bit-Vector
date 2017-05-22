@@ -106,8 +106,6 @@ Part 2, Literal Bit Vector and Generic Compression Schemes
     }
 
 
-
-
     table no.1 - performance information of the literal (lit) version of bit vector
 
     	no. of bits 		10^7		10^8		10^9
@@ -272,7 +270,20 @@ Part 4, Word Based Schemes
 			when bit density is close to 0.5, where the word based schemes and byte based schemes use about the same amount of space (bbc) takes about 34 seconds to perform one bitwise logical operation on one billion bits
 			in many cases, the byte-aligned versions take about four times as long to perform a logical operation than the word-aligned versions
 
-			
+			among the three word-aligned bit vectors in terms of storage requirement, pwc does not compress as well as wbc or wah
+			in terms of bitwise logical operation speed, pwc is not any faster than the other two
 
+		page 28, 'we see that almost two thirds of the total reading time is actually spent on forming the bit vector, if we can avoid forming the bit vector during bitwise logical operation, we can reduce the total execution time'
+
+		page 29, 'since moving one byte takes about the same amount of time as moving one word, it is clear that inserting the same number of byte (one byte at a time) takes four times as long (as moving a word)'
+
+		page 29, 'overall, working with WAH bit vectors takes the least amount of time. Operating on BBC bit vectors takes about 60-300% more time than operating on WAH bit vectors'
+
+		page 29, 'the difference between time used by BBC scheme and WAH scheme increases as bit densities increase'
+
+		comparing between WBC and WAH, when bit density is low, WAH is slightly better - the time difference is less than %25; when bit density is high, the two schemes use about the same amount of time
 
 		the advantage of using word based schemes is that we might have faster bitwise logical operations
+
+Part 5, Observations and Analyses
+	this section is used to analyze the observations made by the researchers to see whether they can be applied and the principles generalized
