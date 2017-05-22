@@ -261,4 +261,18 @@ Part 4, Word Based Schemes
 		overall, hrl takes the longest time to perform the same operation and wah usually uses the least amount of time
 		in many cases wah needs only 50-70% of the time used by pwc and wbc 
 		when bit densities are high , logical operations on two hrl bit vectors take almost 40 times longer than performing the same operations using any one of the three word-alignment based schemes
+		when bit densities are high, logical operations on two HRL bit vectors take almost 40 times longer than performing the same operations using an one of the three word-aligned schemes 
+		this clearly demonstrates the importance of maintaining word-alignment in the word based scheme
+
+		compared to word based schemes
+			at bit density 10^-4, operating with pwc and wbc bit vectors uses about the same amount of time as on bbc bit vectors even though the word based schemes need to go through more memory than the byte based versions
+			logical operations on two wah bit vectors needs about half the time of that on two bbc bit vectors
+			as the bit density increases, the time used by the word based schemes grow much slower than that of the byte based schemes
+
+			when bit density is close to 0.5, where the word based schemes and byte based schemes use about the same amount of space (bbc) takes about 34 seconds to perform one bitwise logical operation on one billion bits
+			in many cases, the byte-aligned versions take about four times as long to perform a logical operation than the word-aligned versions
+
+			
+
+
 		the advantage of using word based schemes is that we might have faster bitwise logical operations
