@@ -195,10 +195,30 @@ Part 3, Byte Based Schemes
 		Algorithm 2
 			to append a literal byte to a list of regular encoded bytes stored in a vector container called vec
 			the active byte is used as a place holder for this literal byte
-			when the bit vector is empty, the vector container vec is empty{
+			when the bit vector is empty, the vector container vec is empty {
 				set the first byte in vec to be 1 (vec.push_back(1))
 				the second byte to be the value of the active byte (vec.push_back(active.value))
 				lastHeader = 0
 			} otherwise {
-					Z
+				// see page 7 for algorithm 2
 			}
+
+
+		analysis of PackBits (PAC)
+			if all bytes are the same, this scheme uses two bytes to represent every 129 bytes
+			the best case compression ratio is 0.0155
+			if all bytes are literal bytes, it uses 128 bytes to represent every 127 literal bytes, a 0.8% overhead
+			if a bit sequence consists of two bytes that are the same followed by a third byte that is different from the first two, this scheme needs for bytes to represent these three bytes -> this worst case overhead is 33%
+
+
+		Algorithm 3
+			given two packbits bit vectors x and y, perform an arbitrary bitwise logical operation (denoted ~) to produce a bit vector z
+
+			run xrun, yrun
+			xrun.it = x.vec.begin()
+			yrun.it = v.vec.begin()
+			// ... see page 11 for algorithm 3 
+
+	3.2 Byte-aligned Bitmap Code (BBC)
+		the original version of this scheme was invented by G.Antoshenkov
+
