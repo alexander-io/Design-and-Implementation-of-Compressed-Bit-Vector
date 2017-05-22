@@ -221,4 +221,31 @@ Part 3, Byte Based Schemes
 
 	3.2 Byte-aligned Bitmap Code (BBC)
 		the original version of this scheme was invented by G.Antoshenkov
+		bitwise logical operations on sparse bit vectors are usually faster using BBC coding than using gzip compression, it may even be faster using the literal bit scheme 
 
+		similar to packbits, bbc scheme first organizes bits into bytes but all runs of bbc are of the form of a fill followed by some literal bytes called a tail
+
+		bbc encoding has a number of different 'run types' -> (see page 13, 14 for run-types)
+
+		analysis of byte-aligned bitmap code (bbc)
+			bitwise logical operations perform very fast, comparably fast to literal bit schemes
+			if the majority of the bits are the same, bbc can be very compact
+			if all bits are the same, it only needs a few bytes to represent the bit sequence
+			if the bit vector cannot be compressed at all, BBC code uses 16 bytes to represent every 15 literal bytes, a 6.7% overhead
+
+	3.3 PackBits with multibyte counter (PBM)
+		TODO
+	3.4 Performance
+		in a comparison (page 16) on the three logical operations and time that the bit vectors require for each ->
+			'overall the three logical operations have similar performance characteristics. The AND operation takes slightly less time compared to the other two logical operations especially when the bit densities are low because the resulting bit vector has lower bit density than that of the other two'
+
+
+Part 4, Word Based Schemes
+	most general purpose computer access memory by words even if only a single byte or bit is requested
+		QUESTION ^ is this still true in 2017?
+
+	this section describes four different word based schemes...
+		hybrid run-length encoding (HRL)
+		word-aligned hybrid run-length encoding (WAH)
+		packed word code (PWC)
+		word-aligned bitmap code (WBC)
