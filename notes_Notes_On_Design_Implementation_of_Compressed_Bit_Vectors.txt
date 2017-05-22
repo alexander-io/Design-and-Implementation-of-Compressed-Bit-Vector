@@ -249,3 +249,16 @@ Part 4, Word Based Schemes
 		word-aligned hybrid run-length encoding (WAH)
 		packed word code (PWC)
 		word-aligned bitmap code (WBC)
+
+	analysis of the word based schemes
+		PWC usually uses more space than the other three
+		compression ratios :
+			hrl 	0.0055
+			wah 	0.0055
+			pwc 	0.0083
+			wbc 	0.0055
+
+		overall, hrl takes the longest time to perform the same operation and wah usually uses the least amount of time
+		in many cases wah needs only 50-70% of the time used by pwc and wbc 
+		when bit densities are high , logical operations on two hrl bit vectors take almost 40 times longer than performing the same operations using any one of the three word-alignment based schemes
+		the advantage of using word based schemes is that we might have faster bitwise logical operations
