@@ -287,3 +287,14 @@ Part 4, Word Based Schemes
 
 Part 5, Observations and Analyses
 	this section is used to analyze the observations made by the researchers to see whether they can be applied and the principles generalized
+
+	5.1 Alignment is good for logical operations
+	5.2 Word-aligned bit vectors are faster
+	5.3 Sizes of operands determine speed
+	5.4 Recognizing the incompressible is useful
+	5.5 Separated decompression is slow
+	5.6 STL vector container is slow for IO
+	5.7 Putting it together
+
+Part 6, Summary and Future Work
+	
